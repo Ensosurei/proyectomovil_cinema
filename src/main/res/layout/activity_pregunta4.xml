@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9C27B0"
+    tools:context=".Pregunta4Activity">
+
+    <View
+        android:id="@+id/view_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="#F4EFEF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="44dp"
+        android:background="#CBC5CB"
+        app:layout_constraintEnd_toEndOf="@+id/view_background"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view_background"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="35dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="4. Califique el nivel de higiene en baños y salas"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/view_background"
+        app:layout_constraintStart_toStartOf="@+id/view_background"
+        app:layout_constraintTop_toTopOf="@+id/view_background" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_opciones"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_background"
+        app:layout_constraintEnd_toEndOf="@+id/view_background"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view_background"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.181">
+
+        <RadioButton
+            android:id="@+id/RadioOpc1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Malo"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/RadioOpc2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Regular"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/RadioOpc3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Bueno"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/RadioOpc4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Excelente"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#E91E63"
+        android:text="Siguiente Pregunta"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view_background"
+        app:layout_constraintEnd_toEndOf="@+id/view_background"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toStartOf="@+id/radio_group_opciones"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group_opciones"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Elige una respuesta"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view_background"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="230dp"
+        android:text="Encuesta anónima"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/view_background"
+        app:layout_constraintStart_toStartOf="@+id/view_background"
+        app:layout_constraintTop_toTopOf="@+id/view_background" />
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="21dp"
+        android:backgroundTint="#E91E63"
+        android:text="Pregunta Anterior"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view_background"
+        app:layout_constraintEnd_toEndOf="@+id/radio_group_opciones"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="@+id/view_background"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group_opciones"
+        app:layout_constraintVertical_bias="0.818" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
