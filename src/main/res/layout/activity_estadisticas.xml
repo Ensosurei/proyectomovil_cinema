@@ -84,17 +84,16 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_width="365dp"
+        android:layout_height="435dp"
+        android:layout_marginBottom="32dp"
         android:paddingStart="25dp"
         android:paddingEnd="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view_background"
+        app:layout_constraintBottom_toBottomOf="@id/btnRegresar"
         app:layout_constraintEnd_toEndOf="@+id/view_background"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view_background"
-        app:layout_constraintTop_toBottomOf="@+id/view_resumen"
-        app:layout_constraintVertical_bias="0.195">
+        app:layout_constraintTop_toBottomOf="@+id/view_resumen">
 
         <LinearLayout
             android:id="@+id/contenedor_resultados_general"
@@ -120,7 +119,7 @@
                 android:paddingTop="4dp">
 
                 <TextView
-                    android:id="@+id/txtRespuestaR1"
+                    android:id="@+id/txtR1O1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1 vez al mes: "
@@ -128,7 +127,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC1"
+                    android:id="@+id/txtR1O2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
@@ -137,7 +136,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC"
+                    android:id="@+id/txtR1O3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
@@ -146,7 +145,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC6"
+                    android:id="@+id/txtR1O4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
@@ -173,7 +172,7 @@
                 android:paddingTop="4dp">
 
                 <TextView
-                    android:id="@+id/txtRespuestaR2"
+                    android:id="@+id/txtR2O1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Malo:"
@@ -181,7 +180,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC2"
+                    android:id="@+id/txtR2O2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
@@ -190,7 +189,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC7"
+                    android:id="@+id/txtR2O3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
@@ -199,7 +198,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC8"
+                    android:id="@+id/txtR2O4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
@@ -220,25 +219,43 @@
             <LinearLayout
                 android:id="@+id/container_p3_resultados"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:orientation="vertical"
                 android:paddingStart="10dp"
                 android:paddingTop="4dp">
 
                 <TextView
-                    android:id="@+id/txtRespuestaR3"
+                    android:id="@+id/txtR3O1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Respuesta más recurrente:"
+                    android:text="Malo:"
                     android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC3"
+                    android:id="@+id/txtR3O2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
-                    android:text="Cantidad de veces elegida:"
+                    android:text="Regular:"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtR3O3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:text="Bueno:"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtR3O4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:text="Excelente: "
                     android:textColor="#000000"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -256,25 +273,43 @@
             <LinearLayout
                 android:id="@+id/container_p4_resultados"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:orientation="vertical"
                 android:paddingStart="10dp"
                 android:paddingTop="4dp">
 
                 <TextView
-                    android:id="@+id/txtRespuestaR4"
+                    android:id="@+id/txtR4O1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Respuesta más recurrente:"
+                    android:text="Malo: "
                     android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC4"
+                    android:id="@+id/txtR4O2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
-                    android:text="Cantidad de veces elegida:"
+                    android:text="Regular: "
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtR4O3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:text="Bueno: "
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtR4O4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:text="Excelente: "
                     android:textColor="#000000"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -298,19 +333,28 @@
                 android:paddingBottom="16dp">
 
                 <TextView
-                    android:id="@+id/txtRespuestaR5"
+                    android:id="@+id/txtR5O1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Respuesta más recurrente:"
+                    android:text="3D: "
                     android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtRespuestaC5"
+                    android:id="@+id/txtR5O2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
-                    android:text="Cantidad de veces elegida:"
+                    android:text="Sala Normal: "
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtR5O3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:text="Macro XE: "
                     android:textColor="#000000"
                     android:textSize="12sp" />
             </LinearLayout>

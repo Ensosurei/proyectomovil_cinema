@@ -23,86 +23,72 @@ class EstadisticasActivity : AppCompatActivity() {
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
         val txtTotalEncuestas = findViewById<TextView>(R.id.txt_total_encuestas)
 
-        val txtRespuestaR1 = findViewById<TextView>(R.id.txtRespuestaR1)
-        val txtRespuestaR2 = findViewById<TextView>(R.id.txtRespuestaR2)
-        val txtRespuestaR3 = findViewById<TextView>(R.id.txtRespuestaR3)
-        val txtRespuestaR4 = findViewById<TextView>(R.id.txtRespuestaR4)
-        val txtRespuestaR5 = findViewById<TextView>(R.id.txtRespuestaR5)
+        val txtR1O1 = findViewById<TextView>(R.id.txtR1O1)
+        val txtR1O2 = findViewById<TextView>(R.id.txtR1O2)
+        val txtR1O3 = findViewById<TextView>(R.id.txtR1O3)
+        val txtR1O4 = findViewById<TextView>(R.id.txtR1O4)
 
-        val txtRespuestaC1 = findViewById<TextView>(R.id.txtRespuestaC1)
-        val txtRespuestaC2 = findViewById<TextView>(R.id.txtRespuestaC2)
-        val txtRespuestaC3 = findViewById<TextView>(R.id.txtRespuestaC3)
-        val txtRespuestaC4 = findViewById<TextView>(R.id.txtRespuestaC4)
-        val txtRespuestaC5 = findViewById<TextView>(R.id.txtRespuestaC5)
+        val txtR2O1 = findViewById<TextView>(R.id.txtR2O1)
+        val txtR2O2 = findViewById<TextView>(R.id.txtR2O2)
+        val txtR2O3 = findViewById<TextView>(R.id.txtR2O3)
+        val txtR2O4 = findViewById<TextView>(R.id.txtR2O4)
+
+        val txtR3O1 = findViewById<TextView>(R.id.txtR3O1)
+        val txtR3O2 = findViewById<TextView>(R.id.txtR3O2)
+        val txtR3O3 = findViewById<TextView>(R.id.txtR3O3)
+        val txtR3O4 = findViewById<TextView>(R.id.txtR3O4)
+
+        val txtR4O1 = findViewById<TextView>(R.id.txtR4O1)
+        val txtR4O2 = findViewById<TextView>(R.id.txtR4O2)
+        val txtR4O3 = findViewById<TextView>(R.id.txtR4O3)
+        val txtR4O4 = findViewById<TextView>(R.id.txtR4O4)
+
+        val txtR5O1 = findViewById<TextView>(R.id.txtR5O1)
+        val txtR5O2 = findViewById<TextView>(R.id.txtR5O2)
+        val txtR5O3 = findViewById<TextView>(R.id.txtR5O3)
+
 
         val admin = AdminSQLiteOpenHelper(this, "administracion", null, 1)
-        val db = admin.writableDatabase
+        val db = admin.readableDatabase
 
         val resultados = db.rawQuery("SELECT * FROM encuesta", null)
         txtTotalEncuestas.text = "Total de Encuestas Realizadas: ${resultados.count.toString()}"
         resultados.close()
 
-        val consultaPregunta1 = """SELECT pregunta1, COUNT(pregunta1) as total FROM encuesta 
-            WHERE pregunta1 IS NOT NULL AND pregunta1 != '' GROUP BY pregunta1 ORDER BY total DESC LIMIT 1"""
-        val contenidoP1 = db.rawQuery(consultaPregunta1, null)
-        if (contenidoP1.moveToFirst()) {
-            txtRespuestaR1.text = "Respuesta recurrente: ${contenidoP1.getString(0)}"
-            txtRespuestaC1.text = "Cantidad de veces elegida: ${contenidoP1.getInt(1)}"
-        }else{
-            txtRespuestaR1.text = "Respuesta recurrente: No hay respuestas"
-            txtRespuestaC1.text = "Cantidad de veces elegida: 0"
+        fun contarVotos(columna: String, respuesta: String): Int {
+            val consulta = "SELECT COUNT(*) FROM encuesta WHERE $columna = ?"
+            val cursor = db.rawQuery(consulta, arrayOf(respuesta))
+            var cantidad = 0
+            if (cursor.moveToFirst()) {
+                cantidad = cursor.getInt(0)
+            }
+            cursor.close()
+            return cantidad
         }
-        contenidoP1.close()
 
-        val consultaPregunta2 = """SELECT pregunta2, COUNT(pregunta2) as total FROM encuesta 
-            WHERE pregunta2 IS NOT NULL AND pregunta2 != '' GROUP BY pregunta2 ORDER BY total DESC LIMIT 1"""
+        txtR1O1.text = "1 vez al mes: ${contarVotos("pregunta1", "1 vez al mes")} votos"
+        txtR1O2.text = "1 vez cada semana: ${contarVotos("pregunta1", "1 vez cada semana")} votos"
+        txtR1O3.text = "Mas de una vez a la semana: ${contarVotos("pregunta1", "Mas de una vez a la semana")} votos"
+        txtR1O4.text = "Casi nunca: ${contarVotos("pregunta1", "Casi nunca")} votos"
 
-        val contenidoP2 = db.rawQuery(consultaPregunta2, null)
-        if (contenidoP2.moveToFirst()) {
-            txtRespuestaR2.text = "Respuesta recurrente: ${contenidoP2.getString(0)}"
-            txtRespuestaC2.text = "Cantidad de veces elegida: ${contenidoP2.getInt(1)}"
-        }else{
-            txtRespuestaR2.text = "Respuesta recurrente: No hay respuestas"
-            txtRespuestaC2.text = "Cantidad de veces elegida: 0"
-        }
-        contenidoP2.close()
+        txtR2O1.text = "Malo: ${contarVotos("pregunta2", "Malo")} votos"
+        txtR2O2.text = "Regular: ${contarVotos("pregunta2", "Regular")} votos"
+        txtR2O3.text = "Bueno: ${contarVotos("pregunta2", "Bueno")} votos"
+        txtR2O4.text = "Excelente: ${contarVotos("pregunta2", "Excelente")} votos"
 
-        val consultaPregunta3 = """SELECT pregunta3, COUNT(pregunta3) as total FROM encuesta 
-            WHERE pregunta3 IS NOT NULL AND pregunta3 != '' GROUP BY pregunta3 ORDER BY total DESC LIMIT 1"""
-        val contenidoP3 = db.rawQuery(consultaPregunta3, null)
-        if (contenidoP3.moveToFirst()) {
-            txtRespuestaR3.text = "Respuesta recurrente: ${contenidoP3.getString(0)}"
-            txtRespuestaC3.text = "Cantidad de veces elegida: ${contenidoP3.getInt(1)}"
-        }else{
-            txtRespuestaR3.text = "Respuesta recurrente: No hay respuestas"
-            txtRespuestaC3.text = "Cantidad de veces elegida: 0"
-        }
-        contenidoP3.close()
+        txtR3O1.text = "Malo: ${contarVotos("pregunta3", "Malo")} votos"
+        txtR3O2.text = "Regular: ${contarVotos("pregunta3", "Regular")} votos"
+        txtR3O3.text = "Bueno: ${contarVotos("pregunta3", "Bueno")} votos"
+        txtR3O4.text = "Excelente: ${contarVotos("pregunta3", "Excelente")} votos"
 
-        val consultaPregunta4 = """SELECT pregunta4, COUNT(pregunta4) as total FROM encuesta 
-            WHERE pregunta4 IS NOT NULL AND pregunta4 != '' GROUP BY pregunta4 ORDER BY total DESC LIMIT 1"""
-        val contenidoP4 = db.rawQuery(consultaPregunta4, null)
-        if (contenidoP4.moveToFirst()) {
-            txtRespuestaR4.text = "Respuesta recurrente: ${contenidoP4.getString(0)}"
-            txtRespuestaC4.text = "Cantidad de veces elegida: ${contenidoP4.getInt(1)}"
-        }else{
-            txtRespuestaR4.text = "Respuesta recurrente: No hay respuestas"
-            txtRespuestaC4.text = "Cantidad de veces elegida: 0"
-        }
-        contenidoP4.close()
+        txtR4O1.text = "Malo: ${contarVotos("pregunta4", "Malo")} votos"
+        txtR4O2.text = "Regular: ${contarVotos("pregunta4", "Regular")} votos"
+        txtR4O3.text = "Bueno: ${contarVotos("pregunta4", "Bueno")} votos"
+        txtR4O4.text = "Excelente: ${contarVotos("pregunta4", "Excelente")} votos"
 
-        val consultaPregunta5 = """SELECT pregunta5, COUNT(pregunta5) as total FROM encuesta 
-            WHERE pregunta5 IS NOT NULL AND pregunta5 != '' GROUP BY pregunta5 ORDER BY total DESC LIMIT 1"""
-        val contenidoP5 = db.rawQuery(consultaPregunta5, null)
-        if (contenidoP5.moveToFirst()) {
-            txtRespuestaR5.text = "Respuesta recurrente: ${contenidoP5.getString(0)}"
-            txtRespuestaC5.text = "Cantidad de veces elegida: ${contenidoP5.getInt(1)}"
-        }else{
-            txtRespuestaR5.text = "Respuesta recurrente: No hay respuestas"
-            txtRespuestaC5.text = "Cantidad de veces elegida: 0"
-        }
-        contenidoP5.close()
-        db.close()
+        txtR5O1.text = "3D: ${contarVotos("pregunta5", "3D")} votos"
+        txtR5O2.text = "Sala Normal: ${contarVotos("pregunta5", "Sala normal")} votos"
+        txtR5O3.text = "Macro XE: ${contarVotos("pregunta5", "Macro XE")} votos"
 
         btnRegresar.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
